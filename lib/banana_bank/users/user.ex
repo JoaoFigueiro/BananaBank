@@ -16,5 +16,8 @@ defmodule BananaBank.Users.User do
     user
     |> cast(params, attributes)
     |> validate_required(attributes)
+    |> validate_length(:name, min: 3)
+    |> validate_format(:email, ~r/@/)
+    |> validate_length(:cep, is: 8)
   end
 end
