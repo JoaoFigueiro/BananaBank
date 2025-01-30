@@ -3,8 +3,8 @@ defmodule BananaBank.Users.Create do
   alias BananaBank.Repo
 
   def call(params) do
-     params
-     |> User.changeset()
-     |> Repo.insert()
+    params
+    |> User.changeset()
+    |> Repo.insert()
   end
 end
