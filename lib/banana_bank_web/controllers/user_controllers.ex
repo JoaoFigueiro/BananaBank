@@ -7,7 +7,7 @@ defmodule BananaBankWeb.UsersController do
   action_fallback BananaBankWeb.FallbackController
 
   def create(conn, params) do
-    with (:ok, %User{} = user) <- Users.create(params) do
+    with {:ok, %User{} = user} <- Users.create(params) do
       conn
       |> put_status(:created)
       |> render(:create, user: user)
