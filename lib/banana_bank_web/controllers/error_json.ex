@@ -23,8 +23,7 @@ defmodule BananaBankWeb.ErrorJSON do
     # When encoded, the changeset returns its errors
     # as a JSON object. So we just pass it forward.
     %{
-      errors:
-        Ecto.Changeset.traverse_errors(changeset, &translate_errors/1)
+      errors: Ecto.Changeset.traverse_errors(changeset, &translate_errors/1)
     }
   end
 
