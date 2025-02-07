@@ -43,7 +43,8 @@ defmodule BananaBank.MixProject do
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.5"},
       {:argon2_elixir, "~> 4.0"},
-      {:tesla, "~> 1.11"}
+      {:tesla, "~> 1.11"},
+      {:mox, "~> 1.0", only: :test}
     ]
   end
 
