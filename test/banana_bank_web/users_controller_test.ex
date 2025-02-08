@@ -42,7 +42,12 @@ defmodule BananaBankWeb.UsersControllerTest do
         |> json_response(:created)
 
       assert %{
-               "data" => %{"cep" => "29560000", "email" => "joao@frutas.com", "id" => _id, "name" => "João"},
+               "data" => %{
+                 "cep" => "29560000",
+                 "email" => "joao@frutas.com",
+                 "id" => _id,
+                 "name" => "João"
+               },
                "message" => "User criado com sucesso!"
              } = response
     end
@@ -64,7 +69,9 @@ defmodule BananaBankWeb.UsersControllerTest do
         |> post(~p"/api/users", params)
         |> json_response(:bad_request)
 
-      expected_response = %{"errors" => %{"cep" => ["should be 8 character(s)"], "name" => ["can't be blank"]}}
+      expected_response = %{
+        "errors" => %{"cep" => ["should be 8 character(s)"], "name" => ["can't be blank"]}
+      }
 
       assert response == expected_response
     end
@@ -84,7 +91,12 @@ defmodule BananaBankWeb.UsersControllerTest do
         |> json_response(:ok)
 
       expected_response = %{
-        "data" => %{"cep" => "29560000", "email" => "joao@frutas.com", "id" => id, "name" => "João"}
+        "data" => %{
+          "cep" => "29560000",
+          "email" => "joao@frutas.com",
+          "id" => id,
+          "name" => "João"
+        }
       }
 
       assert response == expected_response
