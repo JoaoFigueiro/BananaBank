@@ -10,7 +10,7 @@ defmodule BananaBank.Accounts.Account do
     field :balance, :decimal
     belongs_to :user, User
 
-    timestamp()
+    timestamps()
   end
 
   def changeset(account \\ %__MODULE__{}, params) do
