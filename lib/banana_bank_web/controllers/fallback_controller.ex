@@ -15,7 +15,7 @@ defmodule BananaBankWeb.FallbackController do
     |> render(:error, status: :bad_request)
   end
 
-  def call(conn, {:error, %Ecto.changeset{} = changeset}) do
+  def call(conn, {:error, %Ecto.changeset() = changeset}) do
     conn
     |> put_status(:bad_request)
     |> put_view(json: BananaBankWeb.ErrorJSON)
