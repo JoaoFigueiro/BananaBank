@@ -15,7 +15,7 @@ defmodule BananaBankWeb.AccountsController do
   end
 
   def transaction(conn, params) do
-    with {:ok, result} = transaction <- Accounts.transaction(params) do
+    with {:ok, transaction} <- Accounts.transaction(params) do
       conn
       |> put_status(:ok)
       |> render(:transaction, transaction: transaction)

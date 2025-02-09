@@ -1,10 +1,4 @@
 defmodule BananaBankWeb.ErrorJSON do
-  @moduledoc """
-  This module is invoked by your endpoint in case of errors on JSON requests.
-
-  See config/config.exs.
-  """
-
   # If you want to customize a particular status code,
   # you may add your own clauses, such as:
   #
@@ -27,20 +21,14 @@ defmodule BananaBankWeb.ErrorJSON do
   end
 
   def error(%{status: status}) do
-    %{
-      status: status
-    }
+    %{status: status}
   end
 
   def error(%{msg: msg}) do
-    %{
-      message: msg
-    }
+    %{message: msg}
   end
 
   def error(%{changeset: changeset}) do
-    # When encoded, the changeset returns its errors
-    # as a JSON object. So we just pass it forward.
     %{
       errors: Ecto.Changeset.traverse_errors(changeset, &translate_errors/1)
     }

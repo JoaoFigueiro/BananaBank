@@ -5,7 +5,7 @@ defmodule BananaBankWeb.Token do
   @sign_salt "banana_bank_api"
 
   def sign(user) do
-    Token.sing(Endpoint, @sign_salt, %{"user_id" => user.id})
+    Token.sign(Endpoint, @sign_salt, %{user_id: user.id})
   end
 
   def verify(token), do: Token.verify(Endpoint, @sign_salt, token)

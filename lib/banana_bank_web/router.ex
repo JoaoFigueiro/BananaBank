@@ -12,6 +12,8 @@ defmodule BananaBankWeb.Router do
   scope "/api", BananaBankWeb do
     pipe_through :api
 
+    get "/", WelcomeController, :index
+
     resources "/users", UsersController, only: [:create]
     post "/users/login", UsersController, :login
   end
@@ -20,7 +22,6 @@ defmodule BananaBankWeb.Router do
     pipe_through [:api, :auth]
 
     resources "/users", UsersController, only: [:update, :delete, :show]
-    post "/users/login", UsersController, :login
 
     post "/accounts", AccountsController, :create
     post "/accounts/transaction", AccountsController, :transaction

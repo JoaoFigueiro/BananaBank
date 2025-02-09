@@ -8,7 +8,7 @@ defmodule BananaBank.ViaCep.Client do
 
   @behaviour ClientBehaviour
 
-  @impl
+  @impl ClientBehaviour
   def call(url \\ @default_url, cep) do
     "#{url}/#{cep}/json"
     |> get()
@@ -27,7 +27,7 @@ defmodule BananaBank.ViaCep.Client do
     {:error, :bad_request}
   end
 
-  defp handle_response({:error, _}) do
+  defp handle_response({:error, _reason}) do
     {:error, :internal_server_error}
   end
 end

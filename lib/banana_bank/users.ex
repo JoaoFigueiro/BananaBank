@@ -9,5 +9,5 @@ defmodule BananaBank.Users do
   defdelegate delete(id), to: Delete, as: :call
   defdelegate get(id), to: Get, as: :call
   defdelegate update(params), to: Update, as: :call
-  defdelegate login(params), to: Update, as: :call
+  defdelegate login(params), to: Verify, as: :call
 end
